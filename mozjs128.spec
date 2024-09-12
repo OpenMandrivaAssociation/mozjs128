@@ -2,8 +2,8 @@
 
 %global pre_release %{nil}
 %define pkgname mozjs
-%define api 115
-%define major 115
+%define api 128
+%define major 128
 %define majorlib 0
 %define libmozjs %mklibname %{pkgname} %{api} %{major}
 %define libmozjs_devel %mklibname %{pkgname} %{api} -d
@@ -17,8 +17,8 @@
 %endif
 
 Summary:	JavaScript interpreter and libraries
-Name:		mozjs115
-Version:	115.14.0
+Name:		mozjs128
+Version:	128.2.0
 Release:	1
 License:	MPLv2.0 and BSD and GPLv2+ and GPLv3+ and LGPLv2.1 and LGPLv2.1+
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/%{major}
@@ -49,7 +49,7 @@ Patch15:	https://src.fedoraproject.org/rpms/mozjs115/raw/master/f/spidermonkey_c
 # https://bugzilla.mozilla.org/show_bug.cgi?id=1474486
 Patch16:        https://src.fedoraproject.org/rpms/mozjs115/blob/rawhide/f/firefox-112.0-commasplit.patch
 
-Patch17:	firefox-115-clang19.patch
+#Patch17:	firefox-115-clang19.patch
 
 BuildRequires:	pkgconfig(icu-i18n)
 BuildRequires:	pkgconfig(nspr)
@@ -61,6 +61,7 @@ BuildRequires:	zip
 BuildRequires:	python
 BuildRequires:	rust
 BuildRequires:	cargo
+BuildRequires:  cbindgen
 BuildRequires:	llvm-devel clang-devel
 %ifarch %{x86_64}
 # FIXME without this, configure barfs on znver1. Need to find a proper fix.
