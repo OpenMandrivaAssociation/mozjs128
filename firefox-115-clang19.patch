@@ -1,0 +1,15 @@
+diff -up firefox-115.14.0/js/src/threading/ExclusiveData.h.omv~ firefox-115.14.0/js/src/threading/ExclusiveData.h
+--- firefox-115.14.0/js/src/threading/ExclusiveData.h.omv~	2024-08-14 17:36:46.902796927 +0200
++++ firefox-115.14.0/js/src/threading/ExclusiveData.h	2024-08-14 17:37:40.283406616 +0200
+@@ -109,11 +109,6 @@ class ExclusiveData {
+   explicit ExclusiveData(const MutexId& id, Args&&... args)
+       : lock_(id), value_(std::forward<Args>(args)...) {}
+ 
+-  ExclusiveData(ExclusiveData&& rhs)
+-      : lock_(std::move(rhs.lock)), value_(std::move(rhs.value_)) {
+-    MOZ_ASSERT(&rhs != this, "self-move disallowed!");
+-  }
+-
+   ExclusiveData& operator=(ExclusiveData&& rhs) {
+     this->~ExclusiveData();
+     new (mozilla::KnownNotNull, this) ExclusiveData(std::move(rhs));
