@@ -145,7 +145,7 @@ for i in ../../security/sandbox/chromium/sandbox/linux/system_headers/*_linux_sy
     echo '#include <asm/unistd.h>' >$i
 done
 
-sed -i 's/icu-i18n/icu-uc &/' js/moz.configure
+sed -i 's/icu-i18n/icu-uc &/' moz.configure
 
 %build
 %set_build_flags
