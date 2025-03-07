@@ -114,7 +114,7 @@ pushd ../..
 %patch 17 -p1 -b .17~
 
 # Fix link for icu 76
-sed -i 's/icu-i18n/icu-uc &/' moz.configure
+sed -i 's/icu-i18n/icu-uc &/' js/moz.configure
 popd
 
 # Remove zlib directory (to be sure using system version)
