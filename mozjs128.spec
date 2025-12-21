@@ -51,6 +51,12 @@ Patch16:        https://src.fedoraproject.org/rpms/mozjs115/blob/rawhide/f/firef
 
 #Patch17:	firefox-115-clang19.patch
 
+# Python 3.14 compatibility
+# Change uses of ast.Str with ast.Constant
+# https://phabricator.services.mozilla.com/D261512
+# Rebased slightly
+Patch18:        https://src.fedoraproject.org/rpms/mozjs128/blob/rawhide/f/D261512.1755672843.diff
+
 BuildRequires: make
 BuildRequires: automake
 BuildRequires: m4
