@@ -18,7 +18,7 @@
 
 Summary:	JavaScript interpreter and libraries
 Name:		mozjs128
-Version:	128.12.0
+Version:	128.14.0
 Release:	1
 License:	MPLv2.0 and BSD and GPLv2+ and GPLv3+ and LGPLv2.1 and LGPLv2.1+
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/%{major}
@@ -51,6 +51,10 @@ Patch16:        https://src.fedoraproject.org/rpms/mozjs115/blob/rawhide/f/firef
 
 #Patch17:	firefox-115-clang19.patch
 
+BuildRequires: make
+BuildRequires: automake
+BuildRequires: m4
+BuildRequires: libtool
 BuildRequires:	pkgconfig(icu-i18n)
 BuildRequires:	pkgconfig(nspr)
 BuildRequires:	pkgconfig(libffi)
@@ -61,7 +65,7 @@ BuildRequires:	zip
 BuildRequires:	python
 BuildRequires:	rust
 BuildRequires:	cargo
-BuildRequires:  cbindgen
+BuildRequires: cbindgen
 BuildRequires:	llvm-devel clang-devel
 %ifarch %{x86_64}
 # FIXME without this, configure barfs on znver1. Need to find a proper fix.
