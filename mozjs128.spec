@@ -122,6 +122,7 @@ pushd ../..
 %patch 15 -p1 -b .15~
 %patch 16 -p1 -b .16~
 %patch 17 -p1 -b .17~
+%patch 18 -p1 -b .18~
 
 # Fix link for icu 76
 sed -i 's/icu-i18n/icu-uc &/' js/moz.configure
