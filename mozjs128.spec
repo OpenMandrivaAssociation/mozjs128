@@ -19,7 +19,7 @@
 Summary:	JavaScript interpreter and libraries
 Name:		mozjs128
 Version:	128.14.0
-Release:	2
+Release:	3
 License:	MPLv2.0 and BSD and GPLv2+ and GPLv3+ and LGPLv2.1 and LGPLv2.1+
 URL:		https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey/Releases/%{major}
 Source0:        https://ftp.mozilla.org/pub/firefox/releases/%{version}esr/source/firefox-%{version}esr.source.tar.xz
@@ -121,7 +121,7 @@ pushd ../..
 %patch 14 -p1 -b .14~
 %patch 15 -p1 -b .15~
 %patch 16 -p1 -b .16~
-%patch 17 -p1 -b .17~
+# Patch17 (firefox-115-clang19.patch) is commented out above.
 %patch 18 -p1 -b .18~
 
 # Fix link for icu 76
