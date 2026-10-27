@@ -56,7 +56,8 @@ Patch16:        https://src.fedoraproject.org/rpms/mozjs115/blob/rawhide/f/firef
 # https://phabricator.services.mozilla.com/D261512
 # Rebased slightly
 Patch18:        https://src.fedoraproject.org/rpms/mozjs128/blob/rawhide/f/D261512.1755672843.diff
-# rustc 1.98 added *-oe-linux-* targets. config.guess says "pc".
+# rustc 1.98 added *-oe-linux-* targets. config.guess says "pc"
+# or "openmandriva".
 Patch19:	rustc-1.98-oe-targets.patch
 
 BuildRequires: make

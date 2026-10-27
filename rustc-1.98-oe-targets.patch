@@ -1,14 +1,16 @@
 --- a/build/moz.configure/rust.configure
 +++ b/build/moz.configure/rust.configure
-@@ -404,6 +404,17 @@
+@@ -404,6 +404,19 @@
          if len(narrowed) == 1:
              return narrowed[0].rust_target
  
 +        # rustc 1.98 added *-oe-linux-* targets. config.guess uses the
-+        # vendor "pc" for x86_64, which matches neither "oe" nor rust's
-+        # generic "unknown", so target detection used to die here.
++        # vendor "pc", and OpenMandriva uses "openmandriva". Neither is
++        # rust's generic "unknown", so target detection used to die here.
 +        # https://bugzilla.mozilla.org/show_bug.cgi?id=2053518
-+        vendor = "unknown" if host_or_target.vendor == "pc" else host_or_target.vendor
++        vendor = host_or_target.vendor
++        if vendor in ("pc", "openmandriva"):
++            vendor = "unknown"
 +        narrowed = [c for c in candidates if c.target.vendor == vendor]
 +        if len(narrowed) == 1:
 +            return narrowed[0].rust_target
