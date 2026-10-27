@@ -1,0 +1,20 @@
+--- a/build/moz.configure/rust.configure
++++ b/build/moz.configure/rust.configure
+@@ -404,6 +404,17 @@
+         if len(narrowed) == 1:
+             return narrowed[0].rust_target
+ 
++        # rustc 1.98 added *-oe-linux-* targets. config.guess uses the
++        # vendor "pc" for x86_64, which matches neither "oe" nor rust's
++        # generic "unknown", so target detection used to die here.
++        # https://bugzilla.mozilla.org/show_bug.cgi?id=2053518
++        vendor = "unknown" if host_or_target.vendor == "pc" else host_or_target.vendor
++        narrowed = [c for c in candidates if c.target.vendor == vendor]
++        if len(narrowed) == 1:
++            return narrowed[0].rust_target
++        elif narrowed:
++            candidates = narrowed
++
+         # Finally, see if the vendor can be used to disambiguate.
+         narrowed = [c for c in candidates if c.target.vendor == host_or_target.vendor]
+         if len(narrowed) == 1:

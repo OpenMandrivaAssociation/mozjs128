@@ -56,6 +56,8 @@ Patch16:        https://src.fedoraproject.org/rpms/mozjs115/blob/rawhide/f/firef
 # https://phabricator.services.mozilla.com/D261512
 # Rebased slightly
 Patch18:        https://src.fedoraproject.org/rpms/mozjs128/blob/rawhide/f/D261512.1755672843.diff
+# rustc 1.98 added *-oe-linux-* targets. config.guess says "pc".
+Patch19:	rustc-1.98-oe-targets.patch
 
 BuildRequires: make
 BuildRequires: automake
@@ -123,6 +125,7 @@ pushd ../..
 %patch 16 -p1 -b .16~
 # Patch17 (firefox-115-clang19.patch) is commented out above.
 %patch 18 -p1 -b .18~
+%patch 19 -p1 -b .19~
 
 # Fix link for icu 76
 sed -i 's/icu-i18n/icu-uc &/' js/moz.configure
